@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>로봇로봇</title>
+<!--   <style>
+    @import url("/main.css");
+  </style> -->
+  <link rel="stylesheet" type="text/css" href="/main.css">
+</head>
+
+<body>
+<div id="container">
+ <div class="leftside">
+   <div  id="leftside1">
+    <img v-if="round==1" class="column" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024211705.png"/>
+    <img v-if="round!=1" class="column_fadeout" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024211705.png"/>
+    <img v-if="round==2" class="column" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024210683.png"/>
+    <img v-if="round!=2" class="column_fadeout" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024210683.png"/>
+    <img v-if="round==3" class="column" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024211348.png"/>
+    <img v-if="round!=3" class="column_fadeout" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024211348.png"/>
+    <img v-if="round==4" class="column" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024210987.png"/>
+    <img v-if="round!=4" class="column_fadeout" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024210987.png"/>
+    <img v-if="round==5" class="column" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024200422.png"/>
+    <img v-if="round!=5" class="column_fadeout" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024200422.png"/>
+    <img v-if="round==6" class="column" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024159412.png"/>
+    <img v-if="round!=6" class="column_fadeout" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024159412.png"/>
+    <img v-if="round==7" class="column" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024200095.png"/>
+    <img v-if="round!=7" class="column_fadeout" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024200095.png"/>
+    <img v-if="round==8" class="column" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024159726.png"/>
+    <img v-if="round!=8" class="column_fadeout" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024159726.png"/>
+    <img class="column_fadeout" src="C:\Users\q\Documents\kkao\KakaoTalk_20170725_024211705.png"/>
+  </div><div id="leftside2">
+  <img v-if="round==9" class="column" :src="img9"/>
+  <img v-if="round!=9" class="column_fadeout" :src="img9"/>
+  <img v-if="round==10" class="column" :src="img10"/>
+  <img v-if="round!=10" class="column_fadeout" :src="img10"/>
+  <img v-if="round==11" class="column" :src="img11"/>
+  <img v-if="round!=11" class="column_fadeout" :src="img11"/>
+  <img v-if="round==12" class="column" :src="img12"/>
+  <img v-if="round!=12" class="column_fadeout" :src="img12"/>
+  <img v-if="round==13" class="column" :src="img13"/>
+  <img v-if="round!=13" class="column_fadeout" :src="img13"/>
+  <img v-if="round==14" class="column" :src="img14"/>
+  <img v-if="round!=14" class="column_fadeout" :src="img14"/>
+  <img v-if="round==15" class="column" :src="img15"/>
+  <img v-if="round!=15" class="column_fadeout" :src="img15"/>
+  <img v-if="round==16" class="column" :src="img16"/>
+  <img v-if="round!=16" class="column_fadeout" :src="img16"/>
+  <img class="column_fadeout" :src="img1"/>
+</div>
+</div>
+<div class="rightside">
+  <div id = "rightside1">
+    <p class="answer">{{user_answer}}</p>  
+    <img v-if="user_surrender" class = "surrender" />
+    <img v-else class="none_surrender"/>
+  </div><div id="rightside2">
+  <div id="rightside2_1">
+    <img class="icon" :src="user_icon">
+    <img v-if="user_warnings==0" class="none_warnings" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+    <img v-if="user_warnings>=1" class="warnings" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+    <img v-if="user_warnings>=2" class="warnings" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+    <img v-if="user_warnings>=3" class="warnings" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  </div><div id="rightside2_2">
+  <b class="nickname">{{user_nickname}}</b>
+  <img v-if="user_points>=1" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=2" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=3" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=4" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=5" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+
+  <img v-if="user_points>=6" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+
+  <img v-if="user_points>=7" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=8" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=9" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=10" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=11" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=12" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+</div>
+</div><!--
+<div id = "rightside1">
+    <p class="answer">{{user_answer}}</p>  
+    <img v-if="user_surrender" class = "surrender" />
+    <img v-else class="none_surrender"/>
+  </div><div id="rightside2">
+  <div id="rightside2_1">
+    <img class="icon" :src="user_icon">
+    <img v-if="user_warnings==0" class="none_warnings" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+    <img v-if="user_warnings>=1" class="warnings" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+    <img v-if="user_warnings>=2" class="warnings" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+    <img v-if="user_warnings>=3" class="warnings" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  </div><div id="rightside2_2">
+  <b class="nickname">{{user_nickname}}</b>
+  <img v-if="user_points>=1" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=2" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=3" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=4" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=5" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+
+  <img v-if="user_points>=6" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+
+  <img v-if="user_points>=7" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=8" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=9" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=10" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=11" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=12" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+</div>
+</div>-->
+</div>
+<div class="header" id="header">
+  <p style="background-color: white;  float: left; position: relative; right: -1px; height: 100%; width: 19.7%; text-align: center;margin: 0;  font-size: 3em">{{round}}R</p>
+  <div id="nickname"><%= nickname %></div>
+  <div id="time" style="color: white"></div>
+</div>
+<!-- 서버로 전송하는 부분. form 태그? 나 input이용해서 자바스크립트로 서버에 전송하는 방식을 공부해서 바꿀것-->
+<!-- 서버로 전송하는 부분. form 태그? 나 input이용해서 자바스크립트로 서버에 전송하는 방식을 공부해서 바꿀것-->
+<!-- 서버로 전송하는 부분. form 태그? 나 input이용해서 자바스크립트로 서버에 전송하는 방식을 공부해서 바꿀것-->
+<!-- 서버로 전송하는 부분. form 태그? 나 input이용해서 자바스크립트로 서버에 전송하는 방식을 공부해서 바꿀것-->
+<div class="main">
+<canvas id="board" width="513px" height="513px"></canvas>
+ </div>
+ <div id="footer">
+   <div style="width: 37.5%;">
+    <form action="" method="post">
+      <div>
+        <input type="button" style="width: 19.9%;height: 5.5vh;float: left;" class="robot1" name="robot1"/>
+      </div>
+    </form>
+
+    <form action="" method="post">
+      <div>
+        <input type="button" style="width: 19.9%;height: 5.5vh;float: left; " class="robot2" name="robot2"/>
+      </div>
+    </form>
+    <form action="" method="post">
+      <div>
+        <input type="button" style="width: 19.9%;height: 5.5vh;float: left;" class="robot3" name="robot3"/>
+      </div>
+    </form>
+    <form action="" method="post">
+      <div>
+        <input type="button" style="width: 19.9%;height: 5.5vh; float: left;" class="robot5" name="robot5"/>
+      </div>
+    </form>
+    <form action="" method="post">
+      <div>
+        <input type="button" style="width: 20%;height: 5.5vh; float: right;top=0;" class="robot4" name="robot4"/>
+      </div>
+    </form>
+  </div>
+  <div id="direct_button">
+   <form action="" method="post">
+    <div>
+      <input type="image" src="http://artfeel.co.kr/web/product/big/o_Icon_103.jpg" style="width: 25%;height: 5.5vh;float: left;" 
+      name="arrow1"/>
+    </div>
+  </form>
+
+  <form action="" method="post">
+    <div>
+      <input type="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE6pU17vFoKFL0ZNtkd24LpGRNM1q4qdZp1HMDJ8xapdbv3hHO" style="width: 25%;height: 5.5vh;float: left; " name="arrow2"/>
+    </div>
+  </form>
+  <form action="" method="post">
+    <div>
+      <input type="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzIOefbR_UOg5xPXUYO1x5F-GqVI9c8dM6o5b-8vPtsNP_kkAi" style="width: 25%;height: 5.5vh;float: left;" name="arrow3"/>
+    </div>
+  </form>
+  <form action="" method="post">
+    <div>
+      <input type="image" src="http://artfeel.co.kr/web/product/big/o_Icon_104.jpg" style="width: 24.5%;height: 5.5vh; float: left;" name="arrow4"/>
+    </div>
+  </form>
+</div>
+
+<div style="width: 25%;  display: inline;">
+  <form action="" method="post">
+    <div >
+    <input type="text" value="답을 써주세요!"  onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;" style="width: 65%; height: 5vh; float: left;"  name="input"/>
+    </div><div>
+    <input type="button" value="제출!" style="width: 33%; height: 5.5vh; float: right; top=0; " name="user_answer"/>
+  </div>
+</form>
+</div><div id="surren">
+<form action="" method="post">
+  <div>
+    <input type="button" value="항복!" style="width: 100%; height: 5.5vh" name="surrender" />
+  </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="/main.js"></script>
+<script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+<script src="https://code.createjs.com/tweenjs-0.6.2.min.js"></script>
+<script src="socket.io/socket.io.js"></script>
+<script type="text/javascript" src="/game.js"></script>
+
+</body>
+</html>

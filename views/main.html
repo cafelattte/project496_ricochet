@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>로봇로봇</title>
+  <link rel="stylesheet" type="text/css" href="/main.css">
+</head>
+<body>
+<div id="container">
+ <div class="leftside">
+   <div  id="leftside1">
+    <img id="9" class="column" src="/imgs/merrong_blue"/>
+    <img id="1" class="column" src="/imgs/merrong_red"/>
+    <img id="5" class="column" src="/imgs/merrong_green"/>
+    <img id="13" class="column" src="/imgs/merrong_yellow"/>
+    <img id="10" class="column" src="/imgs/threeeyes_blue"/>
+    <img id="2" class="column" src="/imgs/threeeyes_red"/>
+    <img id="6" class="column" src="/imgs/threeeyes_green"/>
+    <img id="14" class="column" src="/imgs/threeeyes_yellow"/>
+    <img id="0" class="column" src="/imgs/boss"/>
+  </div><div id="leftside2">
+	<img id="11" class="column" src="/imgs/rabbit_blue"/>
+	<img id="3" class="column" src="/imgs/rabbit_red"/>
+	<img id="7" class="column" src="/imgs/rabbit_green"/>
+	<img id="15" class="column" src="/imgs/rabbit_yellow"/>
+	<img id="12" class="column" src="/imgs/bear_blue"/>
+	<img id="4" class="column" src="/imgs/bear_red"/>
+	<img id="8" class="column" src="/imgs/bear_green"/>
+	<img id="16" class="column" src="/imgs/bear_yellow"/>
+</div>
+</div>
+<div class="rightside">
+  <div id = "rightside1">
+    <p class="answer">{{user_answer}}</p>  
+    <img v-if="user_surrender" class = "surrender" />
+    <img v-else class="none_surrender"/>
+  </div><div id="rightside2">
+  <div id="rightside2_1">
+    <img class="icon" :src="user_icon">
+    <img v-if="user_warnings==0" class="none_warnings" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+    <img v-if="user_warnings>=1" class="warnings" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+    <img v-if="user_warnings>=2" class="warnings" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+    <img v-if="user_warnings>=3" class="warnings" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  </div><div id="rightside2_2">
+  <b class="nickname"><%= nickname %></b>
+  <img v-if="user_points>=1" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=2" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=3" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=4" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=5" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+
+  <img v-if="user_points>=6" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+
+  <img v-if="user_points>=7" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=8" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=9" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=10" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=11" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+  <img v-if="user_points>=12" class="points" src="http://img.insight.co.kr/static/2016/04/05/700/ml6g0f5msw7jl40b4may.jpg"/>
+</div>
+</div>
+<!--
+<div id = "rightside1">
+    <p class="answer"></p>  
+    <img class="none_surrender"/>
+  </div><div id="rightside2">
+  <div id="rightside2_1">
+    <img class="empty" src="/img/robot/questionmark">
+  </div><div id="rightside2_2">
+  <b class="nickname"></b>
+</div>
+</div>
+-->
+
+<div id = "rightside1">
+    <p class="answer"></p>  
+    <img class="none_surrender"/>
+  </div><div id="rightside2">
+  <div id="rightside2_1">
+    <img class="empty" src="/img/robot/questionmark">
+  </div><div id="rightside2_2">
+  <b class="nickname"></b>
+</div>
+</div>
+<div id = "rightside1">
+    <p class="answer"></p>  
+    <img class="none_surrender"/>
+  </div><div id="rightside2">
+  <div id="rightside2_1">
+    <img class="empty" src="/img/robot/questionmark">
+  </div><div id="rightside2_2">
+  <b class="nickname"></b>
+</div>
+</div>
+<div id = "rightside1">
+    <p class="answer"></p>  
+    <img class="none_surrender"/>
+  </div><div id="rightside2">
+  <div id="rightside2_1">
+    <img class="empty" src="/img/robot/questionmark">
+  </div><div id="rightside2_2">
+  <b class="nickname"></b>
+</div>
+</div>
+
+<div id = "rightside1">
+    <p class="answer"></p>  
+    <img class="none_surrender"/>
+  </div><div id="rightside2">
+  <div id="rightside2_1">
+    <img class="empty" src="/img/robot/questionmark">
+  </div><div id="rightside2_2">
+  <b class="nickname"></b>
+</div>
+</div>
+
+</div>
+<div class="header" id="header">
+  <p id="p-round" style="background-color: #FFF3f3;  float: left; position: relative; right: -1px; height: 100%; width: 19.7%; text-align: center; margin: 0;  font-size: 2rem;"></p>
+  <div id="time" style="color: white"></div>
+</div>
+<!-- 서버로 전송하는 부분. form 태그? 나 input이용해서 자바스크립트로 서버에 전송하는 방식을 공부해서 바꿀것-->
+<!-- 서버로 전송하는 부분. form 태그? 나 input이용해서 자바스크립트로 서버에 전송하는 방식을 공부해서 바꿀것-->
+<!-- 서버로 전송하는 부분. form 태그? 나 input이용해서 자바스크립트로 서버에 전송하는 방식을 공부해서 바꿀것-->
+<!-- 서버로 전송하는 부분. form 태그? 나 input이용해서 자바스크립트로 서버에 전송하는 방식을 공부해서 바꿀것-->
+<div style="padding-left: 10%; " class="main">
+<canvas  style="border: 1px solid black;" id="board" ></canvas>
+ </div>
+ <div id="footer">
+   <div style="width: 37.5%;">
+    <form action="" method="post">
+      <div>
+        <input type="image" src="/img/robot/robot1_forbutton" style="width: 25%;height: 7.3vh; float: left;" name="robot1"/>
+      </div>
+    </form>
+
+    <form action="" method="post">
+      <div>
+        <input type="image" src="/img/robot/robot2_forbutton" style="width: 25%;height: 7.3vh; float: left;"  name="robot2"/>
+      </div>
+    </form>
+    <form action="" method="post">
+      <div>
+        <input type="image" src="/img/robot/robot3_forbutton" style="width: 25%;height: 7.3vh; float: left;"  name="robot3"/>
+      </div>
+    </form>
+    <form action="" method="post">
+      <div>
+        <input type="image" src="/img/robot/robot4_forbutton" style="width: 25%;height: 7.3vh; float: left;" name="robot4"/>
+      </div>
+    </form>
+  </div>
+  <div id="direct_button">
+   <form action="" method="post">
+    <div>
+      <input type="image" src="http://artfeel.co.kr/web/product/big/o_Icon_103.jpg" style="width: 25%;height: 7.3vh; float: left;" name="arrow1"/>
+    </div>
+  </form>
+
+  <form action="" method="post">
+    <div>
+      <input type="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE6pU17vFoKFL0ZNtkd24LpGRNM1q4qdZp1HMDJ8xapdbv3hHO" style="width: 25%;height: 7.3vh;float: left; " name="arrow2"/>
+    </div>
+  </form>
+  <form action="" method="post">
+    <div>
+      <input type="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzIOefbR_UOg5xPXUYO1x5F-GqVI9c8dM6o5b-8vPtsNP_kkAi" style="width: 25%;height: 7.3vh;float: left;" name="arrow3"/>
+    </div>
+  </form>
+  <form action="" method="post">
+    <div>
+      <input type="image" src="http://artfeel.co.kr/web/product/big/o_Icon_104.jpg" style="width: 24.5%;height: 7.3vh; float: left;" name="arrow4"/>
+    </div>
+  </form>
+</div>
+
+<div style="width: 25%;  display: inline;">
+  <form action="" method="post">
+    <div >
+    <input type="text" value="답을 써주세요!"  onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;" style="width: 64.5%; height: 6.8vh; float: left;"  name="input"/>
+    </div><div>
+    <input type="button" value="제출!" style="width: 33%; height: 7.3vh; float: right; top=0; " name="user_answer"/>
+  </div>
+</form>
+</div><div id="surren">
+<form action="" method="post">
+  <div>
+    <input type="button" value="항복!" style="width: 100%; height: 7.3vh;" name="surrender" />
+  </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="/main.js"></script>
+  <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+  <script src="https://code.createjs.com/tweenjs-0.6.2.min.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="/game.js"></script>
+</body>
+</html>
